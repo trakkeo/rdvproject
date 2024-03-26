@@ -1,32 +1,36 @@
 <?php
+require_once __DIR__ . '/../Model/UsersModel.php';
 
-namespace App\Controller;
+class UserController {
+    private $usersModel;
 
-class UserController
-{
-    public function index()
-    {
-        // Code de votre méthode index
-        return "Hello from the index method!";
+    public function __construct() {
+        $this->usersModel = new UsersModel();
     }
 
-    public function create()
-    {
-        // Code de votre méthode create
+    public function getAllUsers() {
+        return $this->usersModel->getAllUsers();
     }
 
-    public function show($id)
-    {
-        // Code de votre méthode show
+    // Ajoutez ici d'autres méthodes pour gérer les opérations CRUD
+    public function createUser($data) {
+        return $this->usersModel->createUser($data);
     }
 
-    public function update($id)
-    {
-        // Code de votre méthode update
+    public function updateUser($data) {
+        return $this->usersModel->updateUser($data);
     }
 
-    public function delete($id)
-    {
-        // Code de votre méthode delete
+    public function deleteUser($id) {
+        return $this->usersModel->deleteUser($id);
     }
+
+    public function getUserById($id) {
+        return $this->usersModel->getUserById($id);
+    }
+
+
+
+
 }
+?>
